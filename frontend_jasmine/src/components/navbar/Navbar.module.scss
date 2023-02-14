@@ -1,0 +1,167 @@
+.navbarWrapper {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 45px 25px 25px;
+  background-color: var(--base-background);
+
+  @media screen and (min-width: 1440px) {
+    padding: 22px 60px 27px 60px;
+  }
+}
+
+.navbarlogo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.logoMobile {
+  @media screen and (min-width: 1440px) {
+    display: none;
+  }
+}
+
+.logoDesktop {
+  @media screen and (max-width: 1439px) {
+    display: none;
+  }
+}
+
+.navbarLinks {
+  // fill the rest of the space
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+  row-gap: 70px;
+
+  li {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    div {
+      width: 5px;
+      height: 5px;
+      background: transparent;
+      border-radius: 50%;
+
+      margin-bottom: 5px;
+    }
+
+    a {
+      color: var(--baseTextColor);
+      text-decoration: none;
+      font-weight: 400;
+      transition: all 0.3s ease-in-out;
+      display: inline-block;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background-color: var(--baseTextColor);
+        transform-origin: bottom left;
+        transition: transform 0.25s ease-out;
+      }
+
+      &:hover::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+
+  @media screen and (max-width: 1439px) {
+    display: none;
+  }
+}
+
+// ===
+
+.navbarMenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    width: 70%;
+    height: 70%;
+    cursor: pointer;
+  }
+
+  @media screen and (min-width: 1440px) {
+    display: none;
+  }
+}
+
+.navbarSlide {
+  position: absolute;
+  top: 92px;
+  bottom: 0;
+  right: 0;
+  z-index: 5;
+  padding: 1rem;
+  z-index: 100;
+
+  width: 100%;
+  max-height: 412px;
+
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+
+  background-color: #d6b095;
+  background-size: cover;
+  background-repeat: repeat;
+
+  svg {
+    width: 25px;
+    height: 25px;
+    color: var(--secondary-color);
+    margin: 0.5rem 1rem;
+  }
+
+  ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    li {
+      margin: 1rem;
+
+      a {
+        color: var(--baseTextColor);
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 500;
+
+        // transition: all 0.3s ease-in-out;
+      }
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    display: none;
+  }
+}
+
+.blurBackgound {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backdrop-filter: blur(4px);
+  top: 92px;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+}

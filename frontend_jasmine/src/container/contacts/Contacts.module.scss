@@ -1,0 +1,33 @@
+.wrapper {
+  background-color: #efe8e1;
+  padding: 52px 25px;
+  margin-bottom: 215px;
+}
+
+.listAddress {
+  margin-top: 26px;
+  margin-bottom: 36px;
+
+  .itemAddress {
+    display: flex;
+    align-items: center;
+
+    &:nth-child(1) {
+      margin-bottom: 18px;
+    }
+
+    &:nth-child(2) {
+      margin-bottom: 22px;
+    }
+  }
+}
+
+.socialMediaList {
+  display: flex;
+  gap: 20px;
+}
+
+.phoneLinks {
+  text-decoration: none;
+  color: #1b4332;
+}

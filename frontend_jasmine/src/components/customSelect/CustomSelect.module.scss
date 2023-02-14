@@ -1,0 +1,48 @@
+.wrapper {
+  position: relative;
+}
+
+.customSelectWrapper {
+  height: 50px;
+  border: 1px solid #1b4332;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 21px 0 24px;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.optionsContainerList {
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+  border: 1px solid #1b4332;
+  border-top: 0px;
+  left: 0;
+  right: 0;
+
+  .optionsContainerItem {
+    border-bottom: 1px solid #1b4332;
+    height: 50px;
+    padding: 0 21px 0 24px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #1b4332;
+    background-color: #fff;
+
+    &:hover {
+      background-color: #efe8e1;
+    }
+    &:last-child {
+      border-bottom: 0px;
+    }
+
+    &.actvieOption {
+      background-color: #efe8e1;
+    }
+
+    // background-color: ${({ isActive }) => (isActive ? "#efe8e1" : "#ffffff")};
+  }
+}

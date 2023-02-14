@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "Lato";
+  font-display: fallback;
+  src: local("Lato"), url("../fonts/Lato-Light.ttf") format("ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Lato";
+  font-display: fallback;
+  src: local("Lato"), url("../fonts/Lato-Regular.ttf") format("ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Lato";
+  font-display: fallback;
+  src: local("Lato"), url("../fonts/Lato-Bold.ttf") format("ttf");
+  font-weight: 700;
+}

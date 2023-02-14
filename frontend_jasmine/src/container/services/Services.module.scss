@@ -1,0 +1,87 @@
+.wrapper {
+  padding: 53px 25px;
+  background-color: #efe8e1;
+}
+
+.mainOptionBlock {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 27px;
+  margin-bottom: 47px;
+  flex-wrap: wrap;
+  row-gap: 30px;
+}
+
+.subMainOptionBlock {
+  position: relative;
+
+  &:nth-child(3) {
+    margin: 0 auto;
+  }
+}
+
+.underline {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  top: 20px;
+  background-color: var(--greenTextColor);
+}
+
+.subservicesWrapper {
+  :global(.swiper-slide) {
+    width: auto;
+  }
+}
+
+.stripIconStyles {
+  margin-right: 7px;
+}
+
+.tableDataName {
+  padding-left: 20px;
+  padding-bottom: 15px;
+  padding-right: 10px;
+
+  &:last-of-type {
+    padding-bottom: 0px;
+  }
+}
+
+.tableDataPrice {
+  display: flex;
+  justify-content: center;
+  white-space: nowrap;
+  padding-right: 10px;
+}
+
+.currentServiceLine {
+  display: flex;
+  align-items: center;
+  width: max-content;
+}
+
+.paginationHidden {
+  visibility: hidden;
+  margin-top: 0px;
+}
+
+.priceListWrapper {
+  margin-top: 20px;
+  background-color: #fff;
+  padding-bottom: 25px;
+  padding-top: 20px;
+}
+
+.tablePriceList {
+  width: 100%;
+  tr {
+    line-height: 20px;
+  }
+}
+
+.customSelect {
+  margin-bottom: 30px;
+}

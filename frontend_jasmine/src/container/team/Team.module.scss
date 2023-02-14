@@ -1,0 +1,30 @@
+.wrapper {
+  position: relative;
+  padding: 51px 25px 72px 25px;
+}
+
+.imageWrapper {
+  position: relative;
+  padding-bottom: calc(1.25 * 100%);
+
+  .imageTeam {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.descriptionTeamBlock {
+  margin-top: 26px;
+  border-left: 1px solid #1b4332;
+  padding-left: 18px;
+}
+
+.paginationHidden {
+  visibility: hidden;
+}
+
+.customSelect {
+  margin-bottom: 24px;
+}

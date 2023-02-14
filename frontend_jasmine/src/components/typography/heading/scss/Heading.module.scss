@@ -1,0 +1,86 @@
+@import "./vars";
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: var(--primary-font);
+  word-break: break-word;
+}
+
+.textSize_s {
+  font-size: $sizeS;
+}
+
+.textSize_m {
+  font-size: $sizeM;
+}
+
+.textSize_l {
+  font-size: $sizeL;
+}
+
+.textSize_xl {
+  font-size: $sizeXl;
+}
+
+.textSize_xxl {
+  font-size: $sizeXxl;
+}
+
+.align_start,
+.align_left {
+  text-align: left;
+}
+.align_center {
+  text-align: center;
+}
+.align_end,
+.align_right {
+  text-align: right;
+}
+
+.text_uppercase {
+  text-transform: uppercase;
+}
+.text_lowercase {
+  text-transform: lowercase;
+}
+.text_capitalize {
+  text-transform: capitalize;
+}
+.text_none {
+  text-transform: none;
+}
+
+.weight_normal {
+  font-weight: $weightNormal;
+}
+
+.weight_light {
+  font-weight: $weightLight;
+}
+
+.weight_bold {
+  font-weight: $weightBold;
+}
+
+.text_color_base {
+  color: var(--baseTextColor);
+}
+
+.text_color_green {
+  color: var(--greenTextColor);
+}
+
+.text_color_grey {
+  color: var(--greyTextColor);
+}
+
+.text_color_none {
+  color: #000000;
+}
+
+// white-space: nowrpap
