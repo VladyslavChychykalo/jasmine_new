@@ -5,11 +5,23 @@
 /.pnp
 .pnp.js
 
+/frontend_jasmine/node_modules
+/frontend_jasmine/.pnp
+/frontend_jasmine/.pnp.js
+
+/backend_jasmine/node_modules
+/backend_jasmine/.pnp
+/backend_jasmine/.pnp.js
+
 # testing
 /coverage
+/frontend_jasmine/coverage
+/backend_jasmine/coverage
 
 # production
 /build
+/frontend_jasmine/build
+/backend_jasmine/build
 
 # misc
 .DS_Store
