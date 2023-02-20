@@ -7,6 +7,7 @@ import Services from "../../container/services";
 import AboutUs from "../../container/aboutUs";
 import Certificates from "../../container/certificates";
 import Contacts from "../../container/contacts";
+import CustomAccordion from "../../components/customAccordion/CustomAccordion";
 
 const HomePage = () => {
   return (
@@ -15,6 +16,18 @@ const HomePage = () => {
         height: "100vh",
       }}
     >
+      <CustomAccordion accordionTitle="Test" id="0">
+        <div>
+          as asdcsdf sdfsdfs sdfsdf sdfsdf sdfsdfhjfgsdhfa bfdafahjfakjbd
+          fkdsjfaskdjf dfasdj
+        </div>
+      </CustomAccordion>
+      <CustomAccordion accordionTitle="Test" id="1">
+        <div>
+          as asdcsdf sdfsdfs sdfsdf sdfsdf sdfsdfhjfgsdhfa bfdafahjfakjbd
+          fkdsjfaskdjf dfasdj
+        </div>
+      </CustomAccordion>
       <Navbar />
       <Header />
       <AboutUs />
