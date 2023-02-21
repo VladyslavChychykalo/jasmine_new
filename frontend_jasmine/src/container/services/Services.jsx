@@ -73,15 +73,18 @@ const Services = () => {
       <div className={styles.mainOptionBlock}>
         {mainServiceOptions.map(({ id, mainData, name }) => {
           return (
-            <div key={id} className={styles.subMainOptionBlock}>
+            <div
+              key={id}
+              onClick={() => {
+                setCurrentTab(mainData);
+              }}
+              className={styles.subMainOptionBlock}
+            >
               <Text
                 size="xs"
                 color="green"
                 transform="uppercase"
                 letterSpacing="3"
-                onClick={() => {
-                  setCurrentTab(mainData);
-                }}
               >
                 {name}
               </Text>

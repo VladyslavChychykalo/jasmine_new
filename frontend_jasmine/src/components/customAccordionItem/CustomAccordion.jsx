@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
-import styles from "./CustomAccordion.module.scss";
+import styles from "./CustomAccordionItem.module.scss";
 import { ArrowIcon } from "../../icons";
 
-function CustomAccordion(props) {
+function CustomAccordionItem(props) {
   const [active, setActive] = useState(null);
   const contentEl = useRef();
   const { accordionTitle, id, children } = props;
@@ -41,4 +41,4 @@ function CustomAccordion(props) {
   );
 }
 
-export default CustomAccordion;
+export default CustomAccordionItem;

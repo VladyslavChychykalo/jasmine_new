@@ -12,12 +12,8 @@ const Text = (props) => {
     align,
     transform,
     children,
-    letterSpacing,
-    lineHeight,
     color,
-    margin,
     className,
-    inlineStyles,
     whiteSpace,
   } = props;
 
@@ -32,18 +28,7 @@ const Text = (props) => {
     className
   );
 
-  const textInline = {
-    ...inlineStyles,
-    letterSpacing: letterSpacing ? letterSpacing + "px" : "normal",
-    lineHeight: lineHeight ? lineHeight + "px" : "normal",
-    margin: `${margin}`,
-  };
-
-  return (
-    <Element style={textInline} className={textClass}>
-      {children}
-    </Element>
-  );
+  return <Element className={textClass}>{children}</Element>;
 };
 
 Text.propTypes = {
@@ -53,10 +38,7 @@ Text.propTypes = {
   align: PropTypes.oneOf(["start", "center", "end"]),
   transform: PropTypes.oneOf(["uppercase", "lowercase", "capitalize", "none"]),
   children: PropTypes.node,
-  letterSpacing: PropTypes.string,
   color: PropTypes.oneOf(["base", "green", "grey", "none"]),
-  margin: PropTypes.string,
-  lineHeight: PropTypes.string,
   whiteSpace: PropTypes.string,
 };
 
@@ -67,10 +49,7 @@ Text.defaultProps = {
   weight: "normal",
   align: "start",
   transform: "none",
-  letterSpacing: "",
   color: "",
-  margin: "0",
-  lineHeight: "normal",
   whiteSpace: "none",
 };
 

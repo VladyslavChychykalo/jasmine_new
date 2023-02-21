@@ -30,15 +30,18 @@ const Heading = (props) => {
     className
   );
 
-  const headingInline = {
-    ...inlineStyles,
-    letterSpacing: letterSpacing ? letterSpacing + "px" : "normal",
-    lineHeight: lineHeight ? lineHeight + "px" : "normal",
-    margin: `${margin}`,
-  };
+  // const headingInline = {
+  //   ...inlineStyles,
+  //   letterSpacing: letterSpacing ? letterSpacing + "px" : "normal",
+  //   lineHeight: lineHeight ? lineHeight + "px" : "normal",
+  //   margin: `${margin}`,
+  // };
 
   return (
-    <Element style={headingInline} className={headingClass}>
+    <Element
+      //  style={headingInline}
+      className={headingClass}
+    >
       {children}
     </Element>
   );

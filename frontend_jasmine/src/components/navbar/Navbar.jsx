@@ -56,6 +56,7 @@ function Navbar() {
                 {navigationOptions.map(({ id, linkContainer, title }) => (
                   <li key={id}>
                     <a
+                      className={styles.linkNavMobile}
                       href={`#${linkContainer}`}
                       onClick={() => setToggle(false)}
                     >
@@ -69,7 +70,7 @@ function Navbar() {
                   display: "flex",
                   width: "100%",
                   justifyContent: "flex-start",
-                  marginTop: "32px",
+                  marginTop: "6px",
                 }}
               >
                 <div

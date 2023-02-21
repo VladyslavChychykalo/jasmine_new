@@ -12,3 +12,4 @@ export { default as StripIcon } from "./StripIcon";
 export { default as LongStripIcon } from "./LongStripIcon";
 export { default as LogoMobile } from "./LogoMobile";
 export { default as LogoDesktop } from "./LogoDesktop";
+export { default as SideArrow } from "./SideArrow";

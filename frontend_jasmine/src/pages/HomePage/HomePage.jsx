@@ -7,27 +7,30 @@ import Services from "../../container/services";
 import AboutUs from "../../container/aboutUs";
 import Certificates from "../../container/certificates";
 import Contacts from "../../container/contacts";
-import CustomAccordion from "../../components/customAccordion/CustomAccordion";
+// import CustomAccordionItem from "../../components/customAccordionItem/CustomAccordionItem";
 
 const HomePage = () => {
   return (
     <div
       style={{
-        height: "100vh",
+        // height: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        flex: "1",
       }}
     >
-      <CustomAccordion accordionTitle="Test" id="0">
+      {/* <CustomAccordionItem accordionTitle="Test" id="0">
         <div>
           as asdcsdf sdfsdfs sdfsdf sdfsdf sdfsdfhjfgsdhfa bfdafahjfakjbd
           fkdsjfaskdjf dfasdj
         </div>
-      </CustomAccordion>
-      <CustomAccordion accordionTitle="Test" id="1">
+      </CustomAccordionItem>
+      <CustomAccordionItem accordionTitle="Test" id="1">
         <div>
           as asdcsdf sdfsdfs sdfsdf sdfsdf sdfsdfhjfgsdhfa bfdafahjfakjbd
           fkdsjfaskdjf dfasdj
         </div>
-      </CustomAccordion>
+      </CustomAccordionItem> */}
       <Navbar />
       <Header />
       <AboutUs />

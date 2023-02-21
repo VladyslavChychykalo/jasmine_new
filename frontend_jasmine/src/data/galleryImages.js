@@ -30,6 +30,11 @@ const imagesContainer = [
     alt: "Image5",
     src: gallery5,
   },
+  {
+    id: "6",
+    alt: "Image6",
+    src: gallery5,
+  },
 ];
 
 export default imagesContainer;

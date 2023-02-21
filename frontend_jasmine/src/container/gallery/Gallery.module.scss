@@ -1,6 +1,89 @@
 .wrapper {
   position: relative;
   background-color: #efe8e1;
-  margin-top: 72px;
-  padding: 52px 25px;
+  padding: 46px 25px 52px;
+
+  @media screen and (min-width: 1440px) {
+    padding: 84px 0px 106px 0px;
+  }
+}
+
+.galleryTitile {
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 4px;
+  margin-bottom: 25px;
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 16px;
+    padding-left: 61px;
+  }
+}
+
+.textGalleryWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+
+  p {
+    font-size: 14px;
+    line-height: 20px;
+
+    @media screen and (min-width: 1440px) {
+      margin-right: 10px;
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 43px;
+    justify-content: flex-start;
+    padding-left: 61px;
+  }
+}
+
+.arrowNavigation {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  cursor: pointer;
+
+  &:global(.swiper-button-disabled) {
+    opacity: 0;
+    cursor: auto;
+    pointer-events: none;
+  }
+
+  &.defaultPosition {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.arrowNavigationLeft {
+  @extend .arrowNavigation;
+  left: 61px;
+}
+
+.arrowNavigationRight {
+  @extend .arrowNavigation;
+  right: 61px;
+
+  svg {
+    transform: rotate(180deg);
+  }
+}
+
+.mobileSwiper {
+  @media screen and (min-width: 1440px) {
+    display: none;
+  }
+}
+
+.desktopSwiper {
+  position: relative;
+  padding: 0px 124px;
+  @media screen and (max-width: 1439px) {
+    display: none;
+  }
 }

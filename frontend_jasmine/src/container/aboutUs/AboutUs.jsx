@@ -8,34 +8,27 @@ import styles from "./AboutUs.module.scss";
 const AboutUs = () => {
   return (
     <div id="main" className={styles.wrapper}>
-      <Heading
-        transform="uppercase"
-        size="l"
-        as="h4"
-        letterSpacing="5"
-        color="green"
-        weight="bold"
-      >
-        Про нас
-      </Heading>
-      <Text
-        margin="23px 0 0 0"
-        color="green"
-        letterSpacing="2"
-        lineHeight="20"
-      >
-        Вже як 10 років ми знайшли в нашому салоні формулу краси.
-      </Text>
-      <Text
-        margin="10px 0 0 0"
-        letterSpacing="2"
-        color="green"
-        lineHeight="20"
-      >
-        ЖАСМІН - твій порятунок перед важливою зустріччю, довгоочікуваним
-        побаченням або насиченим вікендом.
-      </Text>
-      <img className={styles.aboutUsImage} src={image} alt="about" />
+      <div className={styles.textWrapper}>
+        <Heading
+          className={styles.title}
+          transform="uppercase"
+          as="h4"
+          weight="bold"
+        >
+          Про нас
+        </Heading>
+        <Text className={styles.description}>
+          Вже як 10 років ми знайшли в нашому салоні формулу краси.
+        </Text>
+        <Text className={styles.description}>
+          ЖАСМІН - твій порятунок перед важливою зустріччю, довгоочікуваним
+          побаченням або насиченим вікендом.
+        </Text>
+      </div>
+
+      <div>
+        <img className={styles.aboutUsImage} src={image} alt="about" />
+      </div>
     </div>
   );
 };
