@@ -1,0 +1,31 @@
+.arrowNavigation {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  cursor: pointer;
+
+  &:global(.swiper-button-disabled) {
+    opacity: 0;
+    cursor: auto;
+    pointer-events: none;
+  }
+
+  &.defaultPosition {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.arrowNavigationLeft {
+  @extend .arrowNavigation;
+  left: 61px;
+}
+
+.arrowNavigationRight {
+  @extend .arrowNavigation;
+  right: 61px;
+
+  svg {
+    transform: rotate(180deg);
+  }
+}

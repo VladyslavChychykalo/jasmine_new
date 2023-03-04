@@ -44,7 +44,7 @@ const StyledSelect = ({
         ref={selectRef}
         onClick={() => setSelect((prev) => !prev)}
       >
-        <Text size="m" color="green" letterSpacing="1">
+        <Text size="m" color="green" className={styles.selectOption}>
           {currentOption?.selectName}
         </Text>
         <ArrowIcon isSelected={isSelected} />
@@ -59,7 +59,7 @@ const StyledSelect = ({
               key={option.id}
               onClick={() => handleChangeOption(option)}
             >
-              <Text size="m" color="green" letterSpacing="1">
+              <Text size="m" color="green" className={styles.selectOption}>
                 {option.selectName}
               </Text>
             </li>

@@ -13,6 +13,10 @@
   background-color: #fff;
 }
 
+.selectOption {
+  letter-spacing: 3.2px;
+}
+
 .optionsContainerList {
   position: absolute;
   width: 100%;
@@ -42,7 +46,5 @@
     &.actvieOption {
       background-color: #efe8e1;
     }
-
-    // background-color: ${({ isActive }) => (isActive ? "#efe8e1" : "#ffffff")};
   }
 }

@@ -1,6 +1,22 @@
 .wrapper {
   position: relative;
-  padding: 51px 25px 72px 25px;
+  padding: 73px 25px 72px 25px;
+
+  @media screen and (min-width: 1440px) {
+    padding: 150px 0px 171px 0px;
+  }
+}
+
+.header {
+  line-height: 22px;
+  letter-spacing: 4px;
+  margin-bottom: 25px;
+
+  @media screen and (min-width: 1440px) {
+    padding: 0px 61px;
+    margin-bottom: 49px;
+
+  }
 }
 
 .imageWrapper {
@@ -15,10 +31,41 @@
   }
 }
 
+.mobileTeamWrapper {
+  @media screen and (min-width: 1440px) {
+    display: none;
+  }
+}
+
+.desktopTeamWrapper {
+  :global(.swiper-slide) {
+    width: auto;
+  }
+
+  @media screen and (max-width: 1439px) {
+    display: none;
+  }
+}
+
 .descriptionTeamBlock {
-  margin-top: 26px;
+  margin-top: 24px;
   border-left: 1px solid #1b4332;
   padding-left: 18px;
+
+  .teamName {
+    line-height: 20px;
+    margin-bottom: 7px;
+    letter-spacing: 3.2px;
+  }
+
+  .teamDescription {
+    line-height: 15px;
+    letter-spacing: 3.2px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-top: 21px;
+  }
 }
 
 .paginationHidden {
@@ -27,4 +74,77 @@
 
 .customSelect {
   margin-bottom: 24px;
+}
+
+.professionText {
+  line-height: 20px;
+  letter-spacing: 3.2px;
+  color: var(--greyTextColor);
+
+  &.active {
+    color: var(--greenTextColor);
+  }
+}
+
+.stripIconStyles {
+  margin-right: 7px;
+}
+
+.currentServiceLine {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  cursor: pointer;
+
+  // path {
+  //   fill: var(--greyTextColor);
+  // }
+
+  // .active {
+  //   path {
+  //     fill: var(--greenTextColor);
+  //   }
+  // }
+}
+
+.arrowNavigation {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  cursor: pointer;
+
+  &:global(.swiper-button-disabled) {
+    opacity: 0;
+    cursor: auto;
+    pointer-events: none;
+  }
+
+  &.defaultPosition {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.arrowNavigationLeft {
+  @extend .arrowNavigation;
+  left: 61px;
+}
+
+.arrowNavigationRight {
+  @extend .arrowNavigation;
+  right: 61px;
+
+  svg {
+    transform: rotate(180deg);
+  }
+}
+
+.swiperTeamBlock {
+  position: relative;
+  padding: 0 152px;
+}
+
+.swiperProfessionBlock {
+  padding: 0px 61px;
+  margin-bottom: 59px;
 }
