@@ -1,18 +1,33 @@
-import React, { useRef, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import styles from "./CustomAccordionItem.module.scss";
 import { ArrowIcon } from "../../icons";
 
 function CustomAccordionItem(props) {
-  const [active, setActive] = useState(null);
+  const {
+    accordionTitle,
+    id,
+    children,
+    key,
+    initialActive = null,
+    onSetService,
+    data,
+  } = props;
+
+  const [active, setActive] = useState(initialActive);
   const contentEl = useRef();
-  const { accordionTitle, id, children } = props;
+
+  const onChangeService = useCallback(() => {
+    onSetService(data);
+  }, [onSetService, data]);
 
   const handleToggle = (index) => {
     setActive(active === index ? null : index);
+
+    onChangeService();
   };
 
   return (
-    <div className={styles.accordionWrapper}>
+    <div key={key} className={styles.accordionWrapper}>
       <div
         className={`${styles.accordionHeader} ${
           active === id ? styles.active : ""
@@ -33,9 +48,7 @@ function CustomAccordionItem(props) {
             : { height: "0px" }
         }
       >
-        <div className={styles.accordionBody}>
-          {children}
-        </div>
+        <div className={styles.accordionBody}>{children}</div>
       </div>
     </div>
   );

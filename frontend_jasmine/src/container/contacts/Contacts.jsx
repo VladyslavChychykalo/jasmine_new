@@ -15,7 +15,7 @@ import styles from "./Contacts.module.scss";
 
 const Contacts = () => {
   return (
-    <div id="contacts" className={styles.wrapper}>
+    <footer id="contacts" className={styles.wrapper}>
       <Heading
         transform="uppercase"
         size="l"
@@ -114,7 +114,7 @@ const Contacts = () => {
           tabIndex="0"
         />
       </div>
-    </div>
+    </footer>
   );
 };
 

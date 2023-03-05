@@ -1,3 +1,17 @@
+.mobilePriceWrapper {
+  @media screen and (min-width: 1440px) {
+    display: none;
+  }
+}
+
+.desktopPriceWrapper {
+  display: flex;
+
+  @media screen and (max-width: 1439px) {
+    display: none;
+  }
+}
+
 .wrapper {
   padding: 53px 25px;
   background-color: #efe8e1;
@@ -6,18 +20,16 @@
 .mainOptionBlock {
   display: flex;
   justify-content: space-between;
-  padding: 0 27px;
+  align-items: center;
   margin-bottom: 47px;
   flex-wrap: wrap;
-  row-gap: 30px;
+  gap: 30px;
 }
 
 .subMainOptionBlock {
   position: relative;
-
-  &:nth-child(3) {
-    margin: 0 auto;
-  }
+  align-self: center;
+  margin: auto;
 }
 
 .underline {
@@ -28,6 +40,10 @@
   left: 0;
   top: 20px;
   background-color: var(--greenTextColor);
+
+  @media screen and (min-width: 1440px) {
+    top: 12px;
+  }
 }
 
 .subservicesWrapper {
@@ -84,4 +100,35 @@
 
 .customSelect {
   margin-bottom: 30px;
+}
+
+.accordionBlock {
+  min-width: 20%;
+}
+
+.servicesBlock {
+  overflow: hidden;
+  margin-left: 25px;
+}
+
+.mainCategoriesBlock {
+  display: flex;
+  margin-bottom: 30px;
+  justify-content: center;
+}
+
+.subMainOptionBlockDesktop {
+  position: relative;
+  padding: 0 43px;
+  // margin: auto;
+}
+
+.pageDesktopPrice {
+  display: flex;
+  justify-content: space-between;
+}
+
+.priceInfo {
+  display: flex;
+  justify-content: space-between;
 }

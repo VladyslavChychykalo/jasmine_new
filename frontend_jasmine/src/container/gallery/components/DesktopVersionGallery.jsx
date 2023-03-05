@@ -7,8 +7,8 @@ import styles from "../Gallery.module.scss";
 SwiperCore.use([Navigation]);
 
 const DesktopVersionGallery = (props) => {
-  const {galleryImages} = props;
-  
+  const { galleryImages } = props;
+
   const carouselSettingsDesktop = {
     spaceBetween: 41,
     slidesPerView: 4,
@@ -23,7 +23,6 @@ const DesktopVersionGallery = (props) => {
     <div className={styles.desktopSwiper}>
       <Swiper {...carouselSettingsDesktop}>
         {galleryImages.map(({ src, alt, id }) => {
-          console.log(galleryImages);
           return (
             <SwiperSlide key={id}>
               <img src={src} alt={alt} />

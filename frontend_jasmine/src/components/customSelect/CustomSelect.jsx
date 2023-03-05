@@ -33,6 +33,7 @@ const StyledSelect = ({
   };
 
   const handleChangeOption = (newOption) => {
+    console.log("newOption", newOption);
     setCurrentOption(newOption);
     setSelect(false);
   };

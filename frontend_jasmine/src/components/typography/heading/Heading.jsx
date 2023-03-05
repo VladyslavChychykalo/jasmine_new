@@ -12,12 +12,8 @@ const Heading = (props) => {
     align,
     transform,
     children,
-    letterSpacing,
-    lineHeight,
     color,
-    margin,
     className,
-    inlineStyles,
   } = props;
 
   const headingClass = clsx(
@@ -30,21 +26,7 @@ const Heading = (props) => {
     className
   );
 
-  // const headingInline = {
-  //   ...inlineStyles,
-  //   letterSpacing: letterSpacing ? letterSpacing + "px" : "normal",
-  //   lineHeight: lineHeight ? lineHeight + "px" : "normal",
-  //   margin: `${margin}`,
-  // };
-
-  return (
-    <Element
-      //  style={headingInline}
-      className={headingClass}
-    >
-      {children}
-    </Element>
-  );
+  return <Element className={headingClass}>{children}</Element>;
 };
 
 Heading.propTypes = {
@@ -54,10 +36,7 @@ Heading.propTypes = {
   align: PropTypes.oneOf(["start", "center", "end"]),
   transform: PropTypes.oneOf(["uppercase", "lowercase", "capitalize", "none"]),
   children: PropTypes.node,
-  letterSpacing: PropTypes.string,
-  lineHeight: PropTypes.string,
   color: PropTypes.oneOf(["base", "green", "grey", "none"]),
-  margin: PropTypes.string,
 };
 
 Heading.defaultProps = {
@@ -67,10 +46,7 @@ Heading.defaultProps = {
   weight: "normal",
   align: "start",
   transform: "none",
-  letterSpacing: "",
-  lineHeight: "",
   color: "none",
-  margin: "0",
 };
 
 export default Heading;

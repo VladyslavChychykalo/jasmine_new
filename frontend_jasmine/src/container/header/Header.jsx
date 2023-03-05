@@ -7,7 +7,7 @@ import styles from "./Header.module.scss";
 
 function Header() {
   return (
-    <div className={styles.wrapper}>
+    <header className={styles.wrapper}>
       <div className={styles.imageDesktopHeaderWrapper}>
         <img src={desktopImageFace} alt="Face" />
       </div>
@@ -36,7 +36,7 @@ function Header() {
           </ul>
         </Text>
       </div>
-    </div>
+    </header>
   );
 }
 

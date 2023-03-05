@@ -13,31 +13,20 @@ const HomePage = () => {
   return (
     <div
       style={{
-        // height: "100vh",
         display: "flex",
         flexDirection: "column",
         flex: "1",
       }}
     >
-      {/* <CustomAccordionItem accordionTitle="Test" id="0">
-        <div>
-          as asdcsdf sdfsdfs sdfsdf sdfsdf sdfsdfhjfgsdhfa bfdafahjfakjbd
-          fkdsjfaskdjf dfasdj
-        </div>
-      </CustomAccordionItem>
-      <CustomAccordionItem accordionTitle="Test" id="1">
-        <div>
-          as asdcsdf sdfsdfs sdfsdf sdfsdf sdfsdfhjfgsdhfa bfdafahjfakjbd
-          fkdsjfaskdjf dfasdj
-        </div>
-      </CustomAccordionItem> */}
       <Navbar />
       <Header />
-      <AboutUs />
-      <Gallery />
-      <Team />
-      <Services />
-      <Certificates />
+      <main>
+        <AboutUs />
+        <Gallery />
+        <Team />
+        <Services />
+        <Certificates />
+      </main>
       <Contacts />
     </div>
   );
