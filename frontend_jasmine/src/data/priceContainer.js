@@ -10,7 +10,6 @@ export const wemanRoom = {
         {
           id: uuidv4(),
           subCategorie: "Послуги з фарбування волосся",
-          // additionalInfo: {},
           services: {
             attributes: [
               {
