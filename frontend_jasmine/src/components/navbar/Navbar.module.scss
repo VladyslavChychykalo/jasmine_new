@@ -1,3 +1,5 @@
+@import "../../scss/mixins";
+
 .navbarWrapper {
   width: 100%;
 
@@ -7,7 +9,7 @@
   padding: 45px 25px 25px;
   background-color: var(--base-background);
 
-  @media screen and (min-width: 1440px) {
+  @include screen-desktop {
     padding: 22px 60px 27px 60px;
   }
 }
@@ -19,7 +21,7 @@
 }
 
 .logoMobile {
-  @media screen and (min-width: 1440px) {
+  @include screen-desktop {
     display: none;
   }
 }
@@ -101,13 +103,9 @@
     cursor: pointer;
   }
 
-  @media screen and (min-width: 1440px) {
+  @include screen-desktop {
     display: none;
   }
-}
-
-.navbarLinks {
-
 }
 
 .navbarSlide {
@@ -159,7 +157,7 @@
     }
   }
 
-  @media screen and (min-width: 1440px) {
+  @include screen-desktop {
     display: none;
   }
 }

@@ -1,5 +1,7 @@
+@import "../../scss/mixins";
+
 .wrapper {
-  @media screen and (min-width: 1440px) {
+  @include screen-desktop {
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
@@ -18,7 +20,7 @@
   padding: 56px 51px 60px;
   background-color: #efe8e1;
 
-  @media screen and (min-width: 1440px) {
+  @include screen-desktop {
     max-width: 380px;
     padding: 56px 51px 60px;
   }
@@ -28,7 +30,7 @@
   margin-top: -29px;
   padding: 0px 45px 57px;
 
-  @media screen and (min-width: 1440px) {
+  @include screen-desktop {
     margin-top: 0px;
     padding: 0;
 
