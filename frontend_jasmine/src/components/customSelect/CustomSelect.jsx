@@ -9,6 +9,7 @@ const StyledSelect = ({
   options,
   setCurrentOption,
   className,
+  isTransparentSelect = false,
 }) => {
   const [isSelected, setSelect] = useState(false);
 

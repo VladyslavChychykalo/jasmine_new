@@ -27,7 +27,7 @@ const HomePage = () => {
         <Services />
         <Certificates />
       </main>
-      <Contacts />
+      {/* <Contacts /> */}
     </div>
   );
 };

@@ -19,57 +19,59 @@ const Certificates = () => {
     },
   };
 
+  const descriptionArr = [
+    {
+      id: "1",
+      description:
+        "Подарунковий сертифікат салону краси Жасмін – це найкращий подарунок. Виможете придбати сертифікат на будь-яку суму або вибрати необхідну послугу.",
+      weight: "normal",
+    },
+    {
+      id: "2",
+      description:
+        " Сертифікатом можна скористатися будь-коли - головне, запишіться наперед до потрібного майстра.",
+      weight: "normal",
+    },
+    {
+      id: "3",
+      description:
+        "Ви даруєте не черговий банальний подарунок – Ви даруєте турботу, увагу та позитивні емоції.",
+      weight: "normal",
+    },
+    {
+      id: "4",
+      description: "Термін дії сертифіката 3 місяці з дня покупки.",
+      weight: "bold",
+    },
+  ];
+
   return (
     <div id="certificates" className={styles.wrapper}>
-      <Heading
-        transform="uppercase"
-        size="l"
-        as="h4"
-        letterSpacing="4"
-        color="green"
-        weight="bold"
-        lineHeight="24"
-      >
-        Подарунковий сертифікат
-      </Heading>
-      <Text
-        margin="17px 0 0 0"
-        color="green"
-        letterSpacing="2"
-        lineHeight="20"
-      >
-        Подарунковий сертифікат салону краси Жасмін – це найкращий подарунок. Ви
-        можете придбати сертифікат на будь-яку суму або вибрати необхідну
-        послугу.
-      </Text>
-      <Text
-        margin="29px 0 0 0"
-        letterSpacing="2"
-        color="green"
-        lineHeight="20"
-      >
-        Сертифікатом можна скористатися будь-коли - головне, запишіться наперед
-        до потрібного майстра.
-      </Text>
-      <Text
-        margin="21px 0 0 0"
-        letterSpacing="2"
-        color="green"
-        lineHeight="20"
-      >
-        Ви даруєте не черговий банальний подарунок – Ви даруєте турботу, увагу
-        та позитивні емоції.
-      </Text>
+      <div className={styles.certificateTextBlock}>
+        <Heading
+          transform="uppercase"
+          size="l"
+          as="h4"
+          color="green"
+          weight="bold"
+          className={styles.certificateTitle}
+        >
+          Подарунковий сертифікат
+        </Heading>
+        {descriptionArr.map(({ id, description, weight }) => {
+          return (
+            <Text
+              color="green"
+              weight={weight === "normal" ? "normal" : "semibold"}
+              key={id}
+              className={styles.descriptionItem}
+            >
+              {description}
+            </Text>
+          );
+        })}
+      </div>
 
-      <Text
-        margin="21px 0 0 0"
-        letterSpacing="2"
-        color="green"
-        lineHeight="20"
-        weight="semibold"
-      >
-        Термін дії сертифіката 3 місяці з дня покупки.
-      </Text>
       <div className={styles.swiperWrapper}>
         <Swiper {...carouselSettings}>
           {certificateImages.map(({ src, alt, id }) => {
