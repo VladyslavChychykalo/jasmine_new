@@ -1,7 +1,42 @@
 .wrapper {
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    margin-top: 112px;
+    margin-bottom: 112px;
+  }
+}
+
+.contactTitle {
+  line-height: 22px;
+  letter-spacing: 0.25em;
+}
+
+.infoBlock {
+  padding: 56px 51px 60px;
   background-color: #efe8e1;
-  padding: 52px 25px;
-  margin-bottom: 215px;
+
+  @media screen and (min-width: 1440px) {
+    max-width: 380px;
+    padding: 56px 51px 60px;
+  }
+}
+
+.mapWrapper {
+  margin-top: -29px;
+  padding: 0px 45px 57px;
+
+  @media screen and (min-width: 1440px) {
+    margin-top: 0px;
+    padding: 0;
+
+    iframe {
+      width: 652px;
+      height: 535px;
+    }
+  }
 }
 
 .listAddress {
@@ -11,6 +46,17 @@
   .itemAddress {
     display: flex;
     align-items: center;
+
+    p {
+      line-height: 17px;
+      letter-spacing: 0.25em;
+    }
+
+    div {
+      &:first-child {
+        margin-right: 23px;
+      }
+    }
 
     &:nth-child(1) {
       margin-bottom: 18px;
