@@ -1,12 +1,19 @@
 // Large tablets and desktops
 $screen-tablets-desktop: 1200px;
 
+$screen-before-desktop: 1439px;
 // example
 $screen-desktop: 1440px;
 
 // Large devices
 @mixin screen-tablets-desktop {
   @media (min-width: #{$screen-tablets-desktop}) {
+    @content;
+  }
+}
+
+@mixin screen-before-desktop {
+  @media (max-width: #{$screen-before-desktop}) {
     @content;
   }
 }
