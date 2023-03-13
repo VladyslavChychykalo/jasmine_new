@@ -3,13 +3,13 @@
   @media screen and (min-width: 1440px) {
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 152px 168px;
   }
 }
 
 .aboutUsImage {
   margin-top: 19px;
-  // width: 100%;
   width: 100%;
   height: auto;
   object-fit: cover;
