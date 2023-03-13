@@ -1,6 +1,7 @@
 import SwiperCore, { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
+import { StripIcon } from "../../../icons";
 import Text from "../../../components/typography/text/Text";
 import usePagesCounter from "../../../utils/usePagesCounter";
 import isValidArrValue from "../../../utils/isValidArrValue";
@@ -49,32 +50,49 @@ const DesktopVersionPrice = (props) => {
 
         <div className={styles.accordionWrapper}>
           {attrs && (
-            <Accordion onSetService={onChangeService}>
+            <Accordion
+              initialActive={attrs?.[0]._key}
+              onSetService={onChangeService}
+            >
               {attrs.map((data) => {
                 const { _key, selectName, subCategories } = data;
+
+                // console.log(subCategories);
+
+                const subCategoriesLength = subCategories.filter(
+                  (el) => el.subCategorie
+                )?.length;
 
                 return (
                   <Accordion.Section key={_key}>
                     <Accordion.Title data={data} id={_key}>
                       {selectName}
                     </Accordion.Title>
-                    {subCategories?.length && (
+                    {!!subCategoriesLength && (
                       <Accordion.Panel id={_key}>
-                        {subCategories.map((item) => {
-                          const { subCategorie, _key } = item;
+                        <div className={styles.accordionPanelWrapper}>
+                          {subCategories.map((item) => {
+                            const { subCategorie, _key } = item;
 
-                          return (
-                            <Text
-                              key={_key}
-                              onClick={() => {
-                                onChangePrice(item);
-                              }}
-                              className={styles.accordionContent}
-                            >
-                              {subCategorie}
-                            </Text>
-                          );
-                        })}
+                            return (
+                              <div className={styles.subCategorieBlock}>
+                                {currentPrice._key === _key && (
+                                  <StripIcon
+                                    className={styles.stripIconStyles}
+                                  />
+                                )}
+
+                                <Text
+                                  key={_key}
+                                  onClick={() => onChangePrice(item)}
+                                  className={styles.accordionContent}
+                                >
+                                  {subCategorie}
+                                </Text>
+                              </div>
+                            );
+                          })}
+                        </div>
                       </Accordion.Panel>
                     )}
                   </Accordion.Section>

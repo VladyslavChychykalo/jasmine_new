@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import { AccordionContext } from "./useAccordionContext";
 
 import AccordionTitle from "./components/AccordionTitle";
@@ -10,6 +10,10 @@ const Accordion = (props) => {
   const { children, initialActive = null, onSetService } = props;
 
   const [activeValue, setActiveValue] = useState(initialActive);
+
+  useEffect(() => {
+    setActiveValue(initialActive);
+  }, [initialActive]);
 
   const onChangeService = useCallback(
     (data) => {

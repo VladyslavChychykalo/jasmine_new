@@ -147,12 +147,21 @@
 }
 
 .accordionContent {
-  margin-bottom: 10px;
   font-size: 12px;
   line-height: 20px;
   letter-spacing: 0.2em;
+}
 
-  &:last-child {
-    margin-bottom: 0px;
+.subCategorieBlock {
+  display: flex;
+  align-items: center;
+}
+
+.accordionPanelWrapper {
+  div {
+    margin-bottom: 10px;
+    &:last-child {
+      margin-bottom: 0px;
+    }
   }
 }

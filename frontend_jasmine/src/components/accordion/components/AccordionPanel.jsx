@@ -14,7 +14,11 @@ const AccordionPanel = ({ children, id }) => {
       }`}
       style={
         activeValue === id
-          ? { height: contentEl.current.scrollHeight }
+          ? {
+              height: contentEl?.current?.scrollHeight
+                ? contentEl?.current?.scrollHeight
+                : "0px",
+            }
           : { height: "0px" }
       }
     >
