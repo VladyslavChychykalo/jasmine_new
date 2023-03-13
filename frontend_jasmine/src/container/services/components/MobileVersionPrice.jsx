@@ -1,7 +1,7 @@
 import SwiperCore, { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import usePagesCounter from "../../../utils/usePagesCounter";
+import isValidArrValue from "../../../utils/isValidArrValue";
 
 import Heading from "../../../components/typography/heading/Heading";
 import { StripIcon } from "../../../icons";
@@ -49,29 +49,29 @@ const MobileVersionPrice = (props) => {
         НАШІ ПОСЛУГИ ТА ЦІНИ
       </Heading>
       <div className={styles.mainOptionBlock}>
-        {mainServiceOptions.map(({ id, mainData, name }) => {
-          return (
-            <div
-              key={id}
-              onClick={() => {
-                onChangeTab(mainData);
-              }}
-              className={styles.subMainOptionBlock}
-            >
-              <Text
-                size="xs"
-                color="green"
-                transform="uppercase"
-                letterSpacing="3"
+        {isValidArrValue(mainServiceOptions) &&
+          mainServiceOptions.map((el) => {
+            const { _id, label } = el;
+            return (
+              <div
+                key={_id}
+                onClick={() => onChangeTab(el)}
+                className={styles.subMainOptionBlock}
               >
-                {name}
-              </Text>
-              {currentTab.label === name && (
-                <div className={styles.underline} />
-              )}
-            </div>
-          );
-        })}
+                <Text
+                  size="xs"
+                  color="green"
+                  transform="uppercase"
+                  letterSpacing="3"
+                >
+                  {label}
+                </Text>
+                {currentTab.label === label && (
+                  <div className={styles.underline} />
+                )}
+              </div>
+            );
+          })}
       </div>
       <CustomSelect
         currentOption={currentSrvice}
@@ -80,14 +80,14 @@ const MobileVersionPrice = (props) => {
         className={styles.customSelect}
       />
       <div className={styles.subservicesWrapper}>
-        {!!currentSrvice?.subCategories.filter((el) => el.subCategorie !== "")
+        {!!currentSrvice?.subCategories.filter((el) => el?.subCategorie)
           .length && (
           <Swiper {...carouselServicesSettings}>
             {currentSrvice.subCategories.map((item) => {
-              const { id, subCategorie } = item;
+              const { _key, subCategorie } = item;
 
               return (
-                <SwiperSlide key={id}>
+                <SwiperSlide key={_key}>
                   <div
                     onClick={() => {
                       onChangePrice(item);
@@ -111,10 +111,9 @@ const MobileVersionPrice = (props) => {
         )}
       </div>
 
-      {priceList.length && (
+      {isValidArrValue(priceList) && (
         <div className={styles.priceListWrapper}>
           <Swiper {...carouselPriceSettings}>
-            {/* {label && } */}
             {priceList.map((item, index) => {
               return (
                 <SwiperSlide key={index}>
@@ -144,14 +143,19 @@ const MobileVersionPrice = (props) => {
                       </tr>
                     )}
 
-                    {item.map(({ name, price, label }) => {
+                    {item.map((el) => {
+                      const { name, price, specialLabel, _key } = el;
                       return (
-                        <tr>
+                        <tr key={_key}>
                           <td className={styles.tableDataName}>
                             <Text
                               color="green"
                               size="s"
-                              weight={label ? "semibold" : "normal"}
+                              weight={
+                                specialLabel === "special"
+                                  ? "semibold"
+                                  : "normal"
+                              }
                             >
                               {name.slice(0, 1).toUpperCase() + name.slice(1)}
                             </Text>
@@ -161,7 +165,11 @@ const MobileVersionPrice = (props) => {
                             <Text
                               color="green"
                               size="s"
-                              weight={label ? "semibold" : "normal"}
+                              weight={
+                                specialLabel === "special"
+                                  ? "semibold"
+                                  : "normal"
+                              }
                             >
                               {price}
                             </Text>

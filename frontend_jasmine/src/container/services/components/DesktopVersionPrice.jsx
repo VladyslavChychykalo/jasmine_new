@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import Text from "../../../components/typography/text/Text";
 import usePagesCounter from "../../../utils/usePagesCounter";
+import isValidArrValue from "../../../utils/isValidArrValue";
 import Heading from "../../../components/typography/heading/Heading";
 import Accordion from "../../../components/accordion/Accordion";
 
@@ -50,21 +51,21 @@ const DesktopVersionPrice = (props) => {
           {attrs && (
             <Accordion onSetService={onChangeService}>
               {attrs.map((data) => {
-                const { id, selectName, subCategories } = data;
+                const { _key, selectName, subCategories } = data;
 
                 return (
-                  <Accordion.Section key={id}>
-                    <Accordion.Title data={data} id={id}>
+                  <Accordion.Section key={_key}>
+                    <Accordion.Title data={data} id={_key}>
                       {selectName}
                     </Accordion.Title>
                     {subCategories?.length && (
-                      <Accordion.Panel id={id}>
+                      <Accordion.Panel id={_key}>
                         {subCategories.map((item) => {
-                          const { subCategorie, id } = item;
+                          const { subCategorie, _key } = item;
 
                           return (
                             <Text
-                              key={id}
+                              key={_key}
                               onClick={() => {
                                 onChangePrice(item);
                               }}
@@ -87,39 +88,34 @@ const DesktopVersionPrice = (props) => {
       {/* 2 part */}
 
       <div className={styles.servicesBlock}>
-        <div className={styles.mainCategoriesBlock}>
-          {mainServiceOptions.map(({ id, mainData, name }) => {
-            return (
-              <div
-                key={id}
-                onClick={() => {
-                  onChangeTab(mainData);
-                }}
-                className={styles.subMainOptionBlockDesktop}
-              >
-                <Text
-                  size="xs"
-                  color="green"
-                  transform="uppercase"
-                  letterSpacing="3"
+        {isValidArrValue(mainServiceOptions) && (
+          <div className={styles.mainCategoriesBlock}>
+            {mainServiceOptions.map((el) => {
+              const { _id, label } = el;
+              return (
+                <div
+                  key={_id}
+                  onClick={() => {
+                    onChangeTab(el);
+                  }}
+                  className={styles.subMainOptionBlockDesktop}
                 >
-                  {name}
-                </Text>
-                {currentTab.label === name && (
-                  <div className={styles.underline} />
-                )}
-              </div>
-            );
-          })}
-        </div>
+                  <Text size="xs" color="green" transform="uppercase">
+                    {label}
+                  </Text>
+                  {currentTab.label === label && (
+                    <div className={styles.underline} />
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        )}
 
-        {priceList?.length && (
+        {isValidArrValue(priceList) && (
           <div className={styles.subservicesWrapper}>
             <Swiper {...carouselPriceSettings}>
               {priceList.map((item, index) => {
-                // const startValue = index * 15;
-                // const endValue = startValue + 15;
-
                 const leftPartList = item?.slice(0, 15);
                 const rightPartList = item?.slice(15, 30);
 
@@ -127,9 +123,9 @@ const DesktopVersionPrice = (props) => {
                   <SwiperSlide key={index}>
                     <div className={styles.pageDesktopPrice}>
                       <div>
-                        {leftPartList.map(({ name, price }) => {
+                        {leftPartList.map(({ name, price, _key }) => {
                           return (
-                            <div className={styles.priceInfo}>
+                            <div key={_key} className={styles.priceInfo}>
                               <Text>{name}</Text>
                               <Text>{price}</Text>
                             </div>
@@ -137,13 +133,11 @@ const DesktopVersionPrice = (props) => {
                         })}
                       </div>
                       <div>
-                        {rightPartList.map(({ name, price }) => {
+                        {rightPartList.map(({ name, price, _key }) => {
                           return (
-                            <div>
-                              <div className={styles.priceInfo}>
-                                <Text>{name}</Text>
-                                <Text>{price}</Text>
-                              </div>
+                            <div key={_key} className={styles.priceInfo}>
+                              <Text>{name}</Text>
+                              <Text>{price}</Text>
                             </div>
                           );
                         })}

@@ -6,7 +6,7 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
-      name: 'title',
+      name: 'label',
       title: 'Заголовок',
       type: 'string',
     }),
@@ -14,7 +14,7 @@ export default defineType({
     // ============================
 
     defineField({
-      name: 'servicesArr',
+      name: 'attrs',
       title: 'Послуги',
       type: 'array',
       of: [
@@ -23,37 +23,49 @@ export default defineType({
           name: 'serviceItem',
           title: 'Послуга',
           fields: [
-            {type: 'string', name: 'serviceName', title: 'Назва послуги'},
+            {type: 'string', name: 'selectName', title: 'Назва послуги'},
             {
               type: 'array',
-              name: 'subServiceArr',
+              name: 'subCategories',
               title: 'Підпослуги',
               of: [
                 {
                   type: 'object',
-                  name: 'subServiceItem',
+                  name: 'subCategorieItem',
                   title: 'Підпослуга',
                   fields: [
-                    {type: 'string', name: 'subServiceName', title: 'Назва підпослуги'},
+                    {type: 'string', name: 'subCategorie', title: 'Назва підпослуги'},
                     {
                       type: 'array',
-                      name: 'subServiceCategoryArr',
+                      name: 'services',
                       title: 'Список цін та послуг',
                       of: [
                         {
                           type: 'object',
-                          name: 'subServiceCategoryItem',
+                          name: 'servicesItem',
                           title: 'Ціна та послуга',
                           fields: [
                             {
                               type: 'string',
-                              name: 'nameService',
+                              name: 'name',
                               title: 'Назва послуги',
                             },
                             {
                               type: 'string',
-                              name: 'priceService',
+                              name: 'price',
                               title: 'Ціна послуги',
+                            },
+                            {
+                              name: 'specialLabel',
+                              title: 'Спеціальний лейбл',
+                              type: 'string',
+                              initialValue: 'common',
+                              options: {
+                                list: [
+                                  {title: 'звичайний', value: 'common'},
+                                  {title: 'спеціальний', value: 'special'},
+                                ],
+                              },
                             },
                           ],
                         },

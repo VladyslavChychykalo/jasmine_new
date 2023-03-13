@@ -17,8 +17,8 @@ const usePagesCounter = (props) => {
   useEffect(() => {
     const numberOfPages = Number(neededNumberOfPages);
     // ===
-    const filterdArrLabel = currentPrice?.services.attributes.filter(
-      (el) => el.label
+    const filterdArrLabel = currentPrice?.services?.filter(
+      (el) => el.specialLabel === "special"
     );
     if (filterdArrLabel?.length) {
       setPriceList((prev) => ({
@@ -31,8 +31,8 @@ const usePagesCounter = (props) => {
     }
     // ===
 
-    const filteredArrayWithoutLabel = currentPrice?.services.attributes.filter(
-      (el) => !el.label
+    const filteredArrayWithoutLabel = currentPrice?.services?.filter(
+      (el) => el.specialLabel === "common"
     );
 
     const fullNumberOfLists = Math.ceil(

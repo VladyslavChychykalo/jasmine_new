@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "../Accordion.module.scss";
 
-const AccordionSection = ({ children, key }) => {
+const AccordionSection = ({ children }) => {
   return (
-    <div className={styles.accordionSection} key={key}>
+    <div className={styles.accordionSection}>
       {children}
     </div>
   );

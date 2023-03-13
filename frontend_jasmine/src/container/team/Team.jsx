@@ -19,14 +19,10 @@ const Team = () => {
     const query = '*[_type == "team"]';
 
     client.fetch(query).then((data) => {
-      // console.log(data);
-      // const { title, teamArray } = data[0];
-
       setTeam(data);
       setCurrentOption(data[0]);
     });
   }, []);
-  // const [currentOption, setCurrentOption] = useState(galleryTeam[0]);
 
   const handleChangeOptions = (option) => {
     setCurrentOption(option);

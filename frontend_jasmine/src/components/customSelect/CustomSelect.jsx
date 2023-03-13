@@ -15,6 +15,10 @@ const StyledSelect = ({
   const selectRef = useRef(null);
   const optionsContainerRef = useRef(null);
 
+  const currentOptionId = currentOption?._id
+    ? currentOption._id
+    : currentOption?._key;
+
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
 
@@ -33,7 +37,6 @@ const StyledSelect = ({
   };
 
   const handleChangeOption = (newOption) => {
-    console.log("newOption", newOption);
     setCurrentOption(newOption);
     setSelect(false);
   };
@@ -52,19 +55,23 @@ const StyledSelect = ({
       </div>
       {isSelected && (
         <ul className={styles.optionsContainerList} ref={optionsContainerRef}>
-          {options.map((option) => (
-            <li
-              className={`${styles.optionsContainerItem} ${
-                currentOption?._id === option?._id && styles.actvieOption
-              }`}
-              key={option._id}
-              onClick={() => handleChangeOption(option)}
-            >
-              <Text size="m" color="green" className={styles.selectOption}>
-                {option.selectName}
-              </Text>
-            </li>
-          ))}
+          {options.map((option) => {
+            const optionId = option?._id ? option._id : option._key;
+
+            return (
+              <li
+                className={`${styles.optionsContainerItem} ${
+                  currentOptionId === optionId && styles.actvieOption
+                }`}
+                key={optionId}
+                onClick={() => handleChangeOption(option)}
+              >
+                <Text size="m" color="green" className={styles.selectOption}>
+                  {option.selectName}
+                </Text>
+              </li>
+            );
+          })}
         </ul>
       )}
     </div>
