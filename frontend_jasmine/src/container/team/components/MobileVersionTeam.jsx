@@ -1,5 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Pagination } from "swiper";
+import isValidArrValue from "../../../utils/isValidArrValue";
+import { urlFor } from "../../../client";
 
 import Text from "../../../components/typography/text/Text";
 import CustomSelect from "../../../components/customSelect";
@@ -27,51 +29,58 @@ const MobileVersionTeam = (props) => {
         setCurrentOption={onChangeOption}
         className={styles.customSelect}
       />
-      <Swiper {...carouselSettingsMobile}>
-        {currentOption.team.map(
-          ({ src, alt, id, name, profession, experience }) => {
-            return (
-              <SwiperSlide key={`mobile_thumb${id}`}>
-                <div className={styles.imageWrapper}>
-                  <img className={styles.imageTeam} src={src} alt={alt} />
-                </div>
+      {isValidArrValue(currentOption?.team) && (
+        <Swiper {...carouselSettingsMobile}>
+          {currentOption.team.map(
+            ({ src: { asset }, _key, name, profession, experience }) => {
+              return (
+                <SwiperSlide key={`mobile_thumb${_key}`}>
+                  <div className={styles.imageWrapper}>
+                    <img
+                      className={styles.imageTeam}
+                      src={urlFor(asset)}
+                      alt="Team"
+                    />
+                  </div>
 
-                <div className={styles.descriptionTeamBlock}>
-                  {name && (
-                    <Text className={styles.teamName} color="green" size="m">
-                      {name}
-                    </Text>
-                  )}
-                  {profession && (
-                    <Text
-                      className={styles.teamDescription}
-                      color="green"
-                      size="xs"
-                    >
-                      {profession}
-                    </Text>
-                  )}
-                  {experience && (
-                    <Text
-                      className={styles.teamDescription}
-                      color="green"
-                      size="xs"
-                    >
-                      {experience}
-                    </Text>
-                  )}
-                </div>
-              </SwiperSlide>
-            );
-          }
-        )}
-        <div
-          className={`${
-            (!currentOption?.team.length || currentOption.team.length === 1) &&
-            styles.paginationHidden
-          } swiper-pagination`}
-        />
-      </Swiper>
+                  <div className={styles.descriptionTeamBlock}>
+                    {name && (
+                      <Text className={styles.teamName} color="green" size="m">
+                        {name}
+                      </Text>
+                    )}
+                    {profession && (
+                      <Text
+                        className={styles.teamDescription}
+                        color="green"
+                        size="xs"
+                      >
+                        {profession}
+                      </Text>
+                    )}
+                    {experience && (
+                      <Text
+                        className={styles.teamDescription}
+                        color="green"
+                        size="xs"
+                      >
+                        Досвід роботи в роках: {experience}
+                      </Text>
+                    )}
+                  </div>
+                </SwiperSlide>
+              );
+            }
+          )}
+          <div
+            className={`${
+              (!currentOption?.team.length ||
+                currentOption.team.length === 1) &&
+              styles.paginationHidden
+            } swiper-pagination`}
+          />
+        </Swiper>
+      )}
     </div>
   );
 };

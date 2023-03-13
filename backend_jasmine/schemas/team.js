@@ -6,13 +6,13 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
-      name: 'title',
-      title: 'Профессия',
+      name: 'selectName',
+      title: 'Професія',
       type: 'string',
     }),
     defineField({
-      name: 'teamArray',
-      title: 'Сотрудники',
+      name: 'team',
+      title: 'Співробітники',
       type: 'array',
       of: [
         {
@@ -20,10 +20,10 @@ export default defineType({
           name: 'teamMember',
           title: 'Співробітник',
           fields: [
-            {type: 'string', name: 'title', title: 'Імʼя'},
+            {type: 'string', name: 'name', title: 'Імʼя'},
             {type: 'string', name: 'profession', title: 'Професія'},
             {type: 'number', name: 'experience', title: 'Досвід (років)'},
-            {type: 'image', name: 'imageUrl', title: 'Фото співробітник'},
+            {type: 'image', name: 'src', title: 'Фото співробітник'},
           ],
         },
       ],

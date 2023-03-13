@@ -49,7 +49,7 @@ Text.defaultProps = {
   weight: "normal",
   align: "start",
   transform: "none",
-  color: "",
+  color: "none",
   whiteSpace: "none",
 };
 

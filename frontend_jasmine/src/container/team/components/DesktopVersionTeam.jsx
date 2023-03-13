@@ -1,12 +1,14 @@
 import { Swiper, SwiperSlide } from "swiper/react";
+import { urlFor } from "../../../client";
 import Text from "../../../components/typography/text/Text";
 import { StripIcon, SideArrow } from "../../../icons";
+import isValidArrValue from "../../../utils/isValidArrValue";
 
 import styles from "../Team.module.scss";
 
 const DesktopVersionTeam = (props) => {
   const { currentOption, galleryTeam, onChangeOption } = props;
-  const teamArray = currentOption?.team.length ? currentOption.team : null;
+  const teamArray = currentOption?.team?.length ? currentOption.team : null;
 
   const carouselSettingsDesktop = {
     spaceBetween: 68,
@@ -26,74 +28,86 @@ const DesktopVersionTeam = (props) => {
   return (
     <div className={styles.desktopTeamWrapper}>
       <div className={styles.swiperProfessionBlock}>
-        <Swiper {...carouselSettingsDesktopCategories}>
-          {galleryTeam.map((teamItem) => {
-            const { selectName, id } = teamItem;
-            const isActiveOption = id === currentOption?.id;
+        {isValidArrValue(galleryTeam) && (
+          <Swiper {...carouselSettingsDesktopCategories}>
+            {galleryTeam.map((teamItem) => {
+              const { selectName, _id } = teamItem;
+              const isActiveOption = _id === currentOption?._id;
 
-            return (
-              <SwiperSlide key={id}>
-                <div
-                  onClick={() => onChangeOption(teamItem)}
-                  className={styles.currentServiceLine}
-                >
-                  {isActiveOption && (
-                    <StripIcon className={styles.stripIconStyles} />
-                  )}
-
-                  <Text
-                    size="m"
-                    className={`${styles.professionText} ${
-                      isActiveOption && styles.active
-                    }`}
+              return (
+                <SwiperSlide key={_id}>
+                  <div
+                    onClick={() => onChangeOption(teamItem)}
+                    className={styles.currentServiceLine}
                   >
-                    {selectName}
-                  </Text>
-                </div>
-              </SwiperSlide>
-            );
-          })}
-        </Swiper>
+                    {isActiveOption && (
+                      <StripIcon className={styles.stripIconStyles} />
+                    )}
+
+                    <Text
+                      size="m"
+                      className={`${styles.professionText} ${
+                        isActiveOption && styles.active
+                      }`}
+                    >
+                      {selectName}
+                    </Text>
+                  </div>
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        )}
       </div>
 
       {teamArray && (
         <div className={styles.swiperTeamBlock}>
           <Swiper {...carouselSettingsDesktop}>
-            {teamArray.map(({ src, alt, id, experience, name, profession }) => {
-              return (
-                <SwiperSlide key={id}>
-                  <div className={styles.imageWrapper}>
-                    <img className={styles.imageTeam} src={src} alt={alt} />
-                  </div>
+            {teamArray.map(
+              ({ src: { asset }, _key, experience, name, profession }) => {
+                return (
+                  <SwiperSlide key={_key}>
+                    <div className={styles.imageWrapper}>
+                      <img
+                        className={styles.imageTeam}
+                        src={urlFor(asset)}
+                        alt="Team"
+                      />
+                    </div>
 
-                  <div className={styles.descriptionTeamBlock}>
-                    {name && (
-                      <Text className={styles.teamName} color="green" size="m">
-                        {name}
-                      </Text>
-                    )}
-                    {profession && (
-                      <Text
-                        className={styles.teamDescription}
-                        color="green"
-                        size="xs"
-                      >
-                        {profession}
-                      </Text>
-                    )}
-                    {experience && (
-                      <Text
-                        className={styles.teamDescription}
-                        color="green"
-                        size="xs"
-                      >
-                        {experience}
-                      </Text>
-                    )}
-                  </div>
-                </SwiperSlide>
-              );
-            })}
+                    <div className={styles.descriptionTeamBlock}>
+                      {name && (
+                        <Text
+                          className={styles.teamName}
+                          color="green"
+                          size="m"
+                        >
+                          {name}
+                        </Text>
+                      )}
+                      {profession && (
+                        <Text
+                          className={styles.teamDescription}
+                          color="green"
+                          size="xs"
+                        >
+                          {profession}
+                        </Text>
+                      )}
+                      {experience && (
+                        <Text
+                          className={styles.teamDescription}
+                          color="green"
+                          size="xs"
+                        >
+                          Досвід роботи в роках: {experience}
+                        </Text>
+                      )}
+                    </div>
+                  </SwiperSlide>
+                );
+              }
+            )}
           </Swiper>
           <div
             className={`swiper-prev-arrow-team ${styles.arrowNavigationLeft} ${styles.defaultPosition}`}

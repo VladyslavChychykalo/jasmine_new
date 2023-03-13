@@ -9,7 +9,6 @@ const StyledSelect = ({
   options,
   setCurrentOption,
   className,
-  isTransparentSelect = false,
 }) => {
   const [isSelected, setSelect] = useState(false);
 
@@ -56,9 +55,9 @@ const StyledSelect = ({
           {options.map((option) => (
             <li
               className={`${styles.optionsContainerItem} ${
-                currentOption?.id === option.id && styles.actvieOption
+                currentOption?._id === option?._id && styles.actvieOption
               }`}
-              key={option.id}
+              key={option._id}
               onClick={() => handleChangeOption(option)}
             >
               <Text size="m" color="green" className={styles.selectOption}>

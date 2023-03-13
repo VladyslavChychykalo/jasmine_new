@@ -57,7 +57,7 @@ function Header() {
           {headerInfo?.servicesArr &&
             headerInfo.servicesArr.map((el) => {
               return (
-                <li>
+                <li key={el}>
                   <Text color="base">- {el}</Text>
                 </li>
               );

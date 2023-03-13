@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SwiperCore, { Pagination } from "swiper";
+import { client } from "../../client";
 
 import MobileVersionTeam from "./components/MobileVersionTeam";
 import DesktopVersionTeam from "./components/DesktopVersionTeam";
-import galleryTeam from "../../data/galleryTeam";
+// import galleryTeam from "../../data/galleryTeam";
 import Heading from "../../components/typography/heading";
 
 import styles from "./Team.module.scss";
@@ -11,7 +12,21 @@ import styles from "./Team.module.scss";
 SwiperCore.use([Pagination]);
 
 const Team = () => {
-  const [currentOption, setCurrentOption] = useState(galleryTeam[0]);
+  const [team, setTeam] = useState({});
+  const [currentOption, setCurrentOption] = useState({});
+
+  useEffect(() => {
+    const query = '*[_type == "team"]';
+
+    client.fetch(query).then((data) => {
+      // console.log(data);
+      // const { title, teamArray } = data[0];
+
+      setTeam(data);
+      setCurrentOption(data[0]);
+    });
+  }, []);
+  // const [currentOption, setCurrentOption] = useState(galleryTeam[0]);
 
   const handleChangeOptions = (option) => {
     setCurrentOption(option);
@@ -31,13 +46,13 @@ const Team = () => {
 
       <MobileVersionTeam
         currentOption={currentOption}
-        galleryTeam={galleryTeam}
+        galleryTeam={team}
         onChangeOption={setCurrentOption}
       />
 
       <DesktopVersionTeam
         currentOption={currentOption}
-        galleryTeam={galleryTeam}
+        galleryTeam={team}
         onChangeOption={handleChangeOptions}
       />
     </div>
