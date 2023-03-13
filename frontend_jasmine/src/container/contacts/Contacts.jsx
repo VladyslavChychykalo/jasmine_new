@@ -76,7 +76,7 @@ const Contacts = () => {
       return { ...el, IconElement };
     });
   };
-  
+
   return (
     <footer id="contacts" className={styles.wrapper}>
       <div className={styles.infoBlock}>
@@ -98,7 +98,7 @@ const Contacts = () => {
             {isValidArrValue(addressArray) &&
               addressArray.map((el) => {
                 return (
-                  <Text size="m" color="green">
+                  <Text key={el} size="m" color="green">
                     {el}
                   </Text>
                 );
@@ -111,9 +111,13 @@ const Contacts = () => {
 
             <div className={styles.contactInfoBlock}>
               {isValidArrValue(contactsArray) &&
-                contactsArray.map(({ contactName, contactLink }) => {
+                contactsArray.map(({ contactName, contactLink, _key }) => {
                   return (
-                    <a className={styles.phoneLinks} href={contactLink}>
+                    <a
+                      key={_key}
+                      className={styles.phoneLinks}
+                      href={contactLink}
+                    >
                       {contactName}
                     </a>
                   );
@@ -130,7 +134,7 @@ const Contacts = () => {
               {isValidArrValue(workTimeArray) &&
                 workTimeArray.map((el) => {
                   return (
-                    <Text size="m" color="green">
+                    <Text key={el} size="m" color="green">
                       {el}
                     </Text>
                   );
@@ -141,9 +145,9 @@ const Contacts = () => {
         <ul className={styles.socialMediaList}>
           {isValidArrValue(socialMediaArray) &&
             mapSocialMediaArr().map(
-              ({ socialLinkName, socilaLinkUrl, IconElement }) => {
+              ({ socialLinkName, socilaLinkUrl, IconElement, _key }) => {
                 return (
-                  <li>
+                  <li key={_key}>
                     <a href={socilaLinkUrl}>
                       {socialLinkName === "Instagram" ? (
                         <IconElement width="32" height="32" />

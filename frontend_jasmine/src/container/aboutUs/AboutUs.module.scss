@@ -22,7 +22,7 @@
 .title {
   font-size: 18px;
   line-height: 22px;
-  letter-spacing: 4px;
+  letter-spacing: 0.25em;
   color: var(--greenTextColor);
   margin-bottom: 21px;
 
@@ -35,15 +35,14 @@
 .description {
   font-size: 14px;
   line-height: 20px;
-  letter-spacing: 2.4px;
+  letter-spacing: 0.15em;
   color: var(--greenTextColor);
   margin-bottom: 12px;
 
   @media screen and (min-width: 1440px) {
     color: var(--baseTextColor);
-    letter-spacing: 3.2px;
+    letter-spacing: 0.2em;
     margin-bottom: 0px;
-    // display: inline;
   }
 }
 
