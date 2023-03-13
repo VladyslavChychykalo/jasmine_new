@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Heading from "../../components/typography/heading";
 import Text from "../../components/typography/text";
 import {
@@ -10,10 +10,73 @@ import {
   ViberIcon,
   TelegramIcon,
 } from "../../icons";
+import { client } from "../../client";
 
 import styles from "./Contacts.module.scss";
 
+const initialContactValues = { title: "Наші контакти" };
+
 const Contacts = () => {
+  const [contacts, setContacts] = useState({});
+
+  useEffect(() => {
+    const query = '*[_type == "contacts"]';
+
+    client.fetch(query).then((data) => {
+      const {
+        addressArray,
+        contactsArray,
+        title,
+        socialMediaArray,
+        workTimeArray,
+      } = data[0];
+
+      setContacts({
+        addressArray,
+        contactsArray,
+        title,
+        socialMediaArray,
+        workTimeArray,
+      });
+    });
+  }, []);
+
+  const {
+    title = "",
+    addressArray = [],
+    contactsArray = [],
+    workTimeArray = [],
+    socialMediaArray = [],
+  } = contacts;
+
+  const isValidArrValue = (arr) => {
+    return Array.isArray(arr) && arr.length ? true : false;
+  };
+
+  const mapSocialMediaArr = () => {
+    return socialMediaArray.map((el) => {
+      let IconElement;
+
+      switch (el.socialLinkName) {
+        case "Instagram":
+          IconElement = InstagramIcon;
+          break;
+        case "Viber":
+          IconElement = ViberIcon;
+          break;
+        case "Telegram":
+          IconElement = TelegramIcon;
+          break;
+        case "Facebook":
+          IconElement = FacebookIcon;
+          break;
+        default:
+          IconElement = null;
+      }
+      return { ...el, IconElement };
+    });
+  };
+  
   return (
     <footer id="contacts" className={styles.wrapper}>
       <div className={styles.infoBlock}>
@@ -25,69 +88,73 @@ const Contacts = () => {
           weight="bold"
           className={styles.contactTitle}
         >
-          Наші контакти
+          {title ? title : initialContactValues.title}
         </Heading>
         <ul className={styles.listAddress}>
           <li className={styles.itemAddress}>
             <div>
               <MarkerIcon />
             </div>
-
-            <Text size="m" color="green">
-              Солом'янський район, вул. Гарматна 45
-            </Text>
+            {isValidArrValue(addressArray) &&
+              addressArray.map((el) => {
+                return (
+                  <Text size="m" color="green">
+                    {el}
+                  </Text>
+                );
+              })}
           </li>
           <li className={styles.itemAddress}>
             <div>
               <PhoneIcon />
             </div>
 
-            <Text size="m" color="green">
-              <a className={styles.phoneLinks} href="tel:+380937390044">
-                (093) 739-00-44
-              </a>
-              <br />
-              <a className={styles.phoneLinks} href="tel:+380968118456">
-                (096) 811-84-56
-              </a>
-            </Text>
+            <div className={styles.contactInfoBlock}>
+              {isValidArrValue(contactsArray) &&
+                contactsArray.map(({ contactName, contactLink }) => {
+                  return (
+                    <a className={styles.phoneLinks} href={contactLink}>
+                      {contactName}
+                    </a>
+                  );
+                })}
+            </div>
           </li>
+
           <li className={styles.itemAddress}>
             <div>
               <ClockIcon />
             </div>
 
             <div>
-              <Text size="m" color="green">
-                Пн-Пт: 09:00-20:00
-              </Text>
-              <Text size="m" color="green">
-                Сб-Нд: 10:00-20:00
-              </Text>
+              {isValidArrValue(workTimeArray) &&
+                workTimeArray.map((el) => {
+                  return (
+                    <Text size="m" color="green">
+                      {el}
+                    </Text>
+                  );
+                })}
             </div>
           </li>
         </ul>
         <ul className={styles.socialMediaList}>
-          <li>
-            <a href="https://www.instagram.com/salonejasmine_/?utm_medium=copy_link">
-              <InstagramIcon width="32" height="32" />
-            </a>
-          </li>
-          <li>
-            <a href="https://t.me/salonejasmine">
-              <TelegramIcon />
-            </a>
-          </li>
-          <li>
-            <a href="viber://chat?number=%2B380937390044">
-              <ViberIcon />
-            </a>
-          </li>
-          <li>
-            <a href="https://www.facebook.com/salonejasminekiev/">
-              <FacebookIcon />
-            </a>
-          </li>
+          {isValidArrValue(socialMediaArray) &&
+            mapSocialMediaArr().map(
+              ({ socialLinkName, socilaLinkUrl, IconElement }) => {
+                return (
+                  <li>
+                    <a href={socilaLinkUrl}>
+                      {socialLinkName === "Instagram" ? (
+                        <IconElement width="32" height="32" />
+                      ) : (
+                        <IconElement />
+                      )}
+                    </a>
+                  </li>
+                );
+              }
+            )}
         </ul>
       </div>
       <div className={styles.mapWrapper}>

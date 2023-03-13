@@ -27,8 +27,13 @@ export default defineType({
       type: 'array',
       of: [
         {
-          type: 'string',
-          name: 'contacts',
+          type: 'object',
+          name: 'contactsArrayItem',
+          title: 'Інформація про контакт',
+          fields: [
+            {type: 'string', name: 'contactName', title: 'Контакт'},
+            {type: 'string', name: 'contactLink', title: 'Посилання на контакт'},
+          ],
         },
       ],
     }),

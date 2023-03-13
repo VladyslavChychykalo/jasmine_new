@@ -77,5 +77,13 @@
 
 .phoneLinks {
   text-decoration: none;
-  color: #1b4332;
+  color: var(--greenTextColor);
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.25em;
+}
+
+.contactInfoBlock {
+  display: flex;
+  flex-direction: column;
 }
