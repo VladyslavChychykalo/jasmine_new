@@ -1,32 +1,28 @@
 .accordionWrapper {
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-bottom: 10px;
+  // border: 1px solid #ddd;
+  // border-radius: 5px;
   overflow: hidden;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
 }
 
 .accordionHeader {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   cursor: pointer;
   justify-content: space-between;
   background-color: #ebedf0;
   transition: 0.3s;
 
   .arrrowIcon {
-    width: 10px;
-    height: 10px;
+    width: 14px;
+    height: 8px;
     transition: 0.35s;
     transform: rotate(180deg);
   }
 
   .accodrionTitle {
-    font-weight: 500;
+    letter-spacing: 0.2em;
     font-size: 14px;
+    line-height: 20px;
     position: relative;
     margin-bottom: 0;
     color: #475f7b;
@@ -49,7 +45,7 @@
 .accordionBody {
   flex: 1 1 auto;
   min-height: 1px;
-  padding: 15px;
+  padding: 18px 0px 18px 15px;
 }
 
 .accodrionCollapse {
@@ -60,5 +56,13 @@
 
   &.show {
     height: auto;
+  }
+}
+
+.accordionSection {
+  margin-bottom: 21px;
+
+  &:last-child {
+    margin-bottom: 0;
   }
 }

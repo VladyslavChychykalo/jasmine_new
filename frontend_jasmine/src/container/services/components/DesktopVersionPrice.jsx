@@ -4,7 +4,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Text from "../../../components/typography/text/Text";
 import usePagesCounter from "../../../utils/usePagesCounter";
 import Heading from "../../../components/typography/heading/Heading";
-import CustomAccordionItem from "../../../components/customAccordionItem/CustomAccordion";
+import Accordion from "../../../components/accordion/Accordion";
+
 import styles from "../Services.module.scss";
 
 SwiperCore.use([Pagination]);
@@ -45,36 +46,41 @@ const DesktopVersionPrice = (props) => {
           НАШІ ПОСЛУГИ ТА ЦІНИ
         </Heading>
 
-        <div>
-          {attrs &&
-            attrs.map((data) => {
-              const { id, selectName, subCategories } = data;
+        <div className={styles.accordionWrapper}>
+          {attrs && (
+            <Accordion onSetService={onChangeService}>
+              {attrs.map((data) => {
+                const { id, selectName, subCategories } = data;
 
-              return (
-                <CustomAccordionItem
-                  key={id}
-                  accordionTitle={selectName}
-                  id={id}
-                  onSetService={onChangeService}
-                  data={data}
-                >
-                  {subCategories.map((item) => {
-                    const { subCategorie, id } = item;
+                return (
+                  <Accordion.Section key={id}>
+                    <Accordion.Title data={data} id={id}>
+                      {selectName}
+                    </Accordion.Title>
+                    {subCategories?.length && (
+                      <Accordion.Panel id={id}>
+                        {subCategories.map((item) => {
+                          const { subCategorie, id } = item;
 
-                    return (
-                      <div
-                        onClick={() => {
-                          onChangePrice(item);
-                        }}
-                        key={id}
-                      >
-                        <Text>{subCategorie}</Text>
-                      </div>
-                    );
-                  })}
-                </CustomAccordionItem>
-              );
-            })}
+                          return (
+                            <Text
+                              key={id}
+                              onClick={() => {
+                                onChangePrice(item);
+                              }}
+                              className={styles.accordionContent}
+                            >
+                              {subCategorie}
+                            </Text>
+                          );
+                        })}
+                      </Accordion.Panel>
+                    )}
+                  </Accordion.Section>
+                );
+              })}
+            </Accordion>
+          )}
         </div>
       </div>
 

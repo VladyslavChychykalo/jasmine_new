@@ -111,7 +111,7 @@
 }
 
 .accordionBlock {
-  min-width: 20%;
+  min-width: 25%;
 }
 
 .servicesBlock {
@@ -140,4 +140,19 @@
 .priceInfo {
   display: flex;
   justify-content: space-between;
+}
+
+.accordionWrapper {
+  margin-top: 122px;
+}
+
+.accordionContent {
+  margin-bottom: 10px;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0.2em;
+
+  &:last-child {
+    margin-bottom: 0px;
+  }
 }

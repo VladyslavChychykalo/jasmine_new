@@ -15,6 +15,7 @@ const Text = (props) => {
     color,
     className,
     whiteSpace,
+    onClick,
   } = props;
 
   const textClass = clsx(
@@ -28,7 +29,11 @@ const Text = (props) => {
     className
   );
 
-  return <Element className={textClass}>{children}</Element>;
+  return (
+    <Element onClick={onClick} className={textClass}>
+      {children}
+    </Element>
+  );
 };
 
 Text.propTypes = {
