@@ -19,7 +19,6 @@ const DesktopVersionTeam = (props) => {
 
   const carouselSettingsDesktopCategories = {
     spaceBetween: 93,
-    // slidesPerView: 1.5,
     slidesPerView: "auto",
     freeMode: true,
   };

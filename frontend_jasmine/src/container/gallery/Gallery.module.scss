@@ -11,7 +11,7 @@
 .galleryTitile {
   font-size: 18px;
   line-height: 22px;
-  letter-spacing: 4px;
+  letter-spacing: 0.25em;
   margin-bottom: 25px;
 
   @media screen and (min-width: 1440px) {
@@ -29,7 +29,7 @@
   p {
     font-size: 14px;
     line-height: 20px;
-    letter-spacing: 3.2px;
+    letter-spacing: 0.2em;
 
     @media screen and (min-width: 1440px) {
       margin-right: 10px;
@@ -86,5 +86,17 @@
   padding: 0px 124px;
   @media screen and (max-width: 1439px) {
     display: none;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  padding-bottom: calc(1.25 * 100%);
+
+  .imageGallery {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
