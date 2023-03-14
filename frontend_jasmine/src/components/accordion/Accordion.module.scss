@@ -9,7 +9,7 @@
   align-items: center;
   cursor: pointer;
   justify-content: space-between;
-  background-color: #ebedf0;
+  // background-color: #ebedf0;
   transition: 0.3s;
 
   .arrrowIcon {
@@ -30,15 +30,15 @@
   }
 
   &.active {
-    background-color: #5a8dee;
+    // background-color: #5a8dee;
 
     .arrrowIcon {
       transform: rotate(0deg);
     }
 
-    .accodrionTitle {
-      color: #fff;
-    }
+    // .accodrionTitle {
+    // color: #fff;
+    // }
   }
 }
 

@@ -23,9 +23,11 @@ const DesktopVersionPrice = (props) => {
     onChangePrice,
   } = props;
 
-  const { priceList } = usePagesCounter({
+  const elementsPerPage = 4;
+
+  const { priceList, label } = usePagesCounter({
     dependencies: [currentTab, currentSrvice, currentPrice],
-    neededNumberOfPages: 30,
+    elementsPerPage,
     currentPrice,
   });
 
@@ -57,15 +59,17 @@ const DesktopVersionPrice = (props) => {
               {attrs.map((data) => {
                 const { _key, selectName, subCategories } = data;
 
-                // console.log(subCategories);
-
                 const subCategoriesLength = subCategories.filter(
                   (el) => el.subCategorie
                 )?.length;
 
                 return (
                   <Accordion.Section key={_key}>
-                    <Accordion.Title data={data} id={_key}>
+                    <Accordion.Title
+                      isArrow={!!subCategoriesLength}
+                      data={data}
+                      id={_key}
+                    >
                       {selectName}
                     </Accordion.Title>
                     {!!subCategoriesLength && (
@@ -134,28 +138,57 @@ const DesktopVersionPrice = (props) => {
           <div className={styles.subservicesWrapper}>
             <Swiper {...carouselPriceSettings}>
               {priceList.map((item, index) => {
-                const leftPartList = item?.slice(0, 15);
-                const rightPartList = item?.slice(15, 30);
+                const leftPartList = item?.slice(
+                  0,
+                  Math.ceil(elementsPerPage / 2)
+                );
+                const rightPartList = item?.slice(
+                  Math.ceil(elementsPerPage / 2),
+                  elementsPerPage
+                );
 
                 return (
                   <SwiperSlide key={index}>
                     <div className={styles.pageDesktopPrice}>
-                      <div>
+                      <div className={styles.pageDesktopPriceItem}>
+                        {label?.name && label?.price && (
+                          <div className={styles.priceInfo}>
+                            <Text color="green" weight="bold">
+                              {label.name}
+                            </Text>
+                            <Text color="green" weight="bold">
+                              {label.price}
+                            </Text>
+                          </div>
+                        )}
+
                         {leftPartList.map(({ name, price, _key }) => {
                           return (
                             <div key={_key} className={styles.priceInfo}>
-                              <Text>{name}</Text>
-                              <Text>{price}</Text>
+                              <Text color="green">{name}</Text>
+                              <Text color="green">{price}</Text>
                             </div>
                           );
                         })}
                       </div>
-                      <div>
+
+                      <div className={styles.pageDesktopPriceItem}>
+                        {label?.name && label?.price && (
+                          <div className={styles.priceInfo}>
+                            <Text color="green" weight="bold">
+                              {label.name}
+                            </Text>
+                            <Text color="green" weight="bold">
+                              {label.price}
+                            </Text>
+                          </div>
+                        )}
+
                         {rightPartList.map(({ name, price, _key }) => {
                           return (
                             <div key={_key} className={styles.priceInfo}>
-                              <Text>{name}</Text>
-                              <Text>{price}</Text>
+                              <Text color="green">{name}</Text>
+                              <Text color="green">{price}</Text>
                             </div>
                           );
                         })}

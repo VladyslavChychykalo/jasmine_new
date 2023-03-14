@@ -24,7 +24,7 @@ const MobileVersionPrice = (props) => {
 
   const { priceList, label } = usePagesCounter({
     dependencies: [currentTab, currentSrvice, currentPrice],
-    neededNumberOfPages: 7,
+    elementsPerPage: 7,
     currentPrice,
   });
 

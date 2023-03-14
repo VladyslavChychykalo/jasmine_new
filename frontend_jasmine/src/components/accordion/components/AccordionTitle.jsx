@@ -3,7 +3,7 @@ import { useAccordionContext } from "../useAccordionContext";
 import { ArrowIcon } from "../../../icons";
 import styles from "../Accordion.module.scss";
 
-const AccordionTitle = ({ children, id, data }) => {
+const AccordionTitle = ({ children, id, data, isArrow = true }) => {
   const { activeValue, handleToggle } = useAccordionContext();
 
   return (
@@ -14,7 +14,7 @@ const AccordionTitle = ({ children, id, data }) => {
       onClick={() => handleToggle(id, data)}
     >
       <h5 className={styles.accodrionTitle}>{children}</h5>
-      <ArrowIcon className={styles.arrrowIcon} />
+      {isArrow && <ArrowIcon className={styles.arrrowIcon} />}
     </div>
   );
 };

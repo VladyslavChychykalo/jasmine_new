@@ -139,11 +139,38 @@
   display: flex;
   justify-content: space-between;
   background-color: #efe8e1;
-}
+  padding: 30px 38px 39px;
+  column-gap: 67px;
 
-.priceInfo {
-  display: flex;
-  justify-content: space-between;
+  .pageDesktopPriceItem {
+    flex: 1;
+
+    & > div {
+      margin-bottom: 15px;
+
+      &:last-child {
+        margin-bottom: 0px;
+      }
+    }
+
+    .priceInfo {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      line-height: 20px;
+      letter-spacing: 0.2em;
+
+      p {
+        &:first-child {
+          margin-right: 20px;
+        }
+
+        &:last-child {
+          white-space: nowrap;
+        }
+      }
+    }
+  }
 }
 
 .accordionWrapper {
