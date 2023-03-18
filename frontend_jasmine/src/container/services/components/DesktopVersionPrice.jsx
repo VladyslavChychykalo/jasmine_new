@@ -23,7 +23,7 @@ const DesktopVersionPrice = (props) => {
     onChangePrice,
   } = props;
 
-  const elementsPerPage = 4;
+  const elementsPerPage = 30;
 
   const { priceList, label } = usePagesCounter({
     dependencies: [currentTab, currentSrvice, currentPrice],
@@ -46,7 +46,13 @@ const DesktopVersionPrice = (props) => {
     <div className={styles.desktopPriceWrapper}>
       {/* 1 part */}
       <div className={styles.accordionBlock}>
-        <Heading size="l" transform="uppercase" weight="bold" color="green">
+        <Heading
+          className={styles.desktopTitle}
+          size="l"
+          transform="uppercase"
+          weight="bold"
+          color="green"
+        >
           НАШІ ПОСЛУГИ ТА ЦІНИ
         </Heading>
 
@@ -122,7 +128,7 @@ const DesktopVersionPrice = (props) => {
                   }}
                   className={styles.subMainOptionBlockDesktop}
                 >
-                  <Text size="xs" color="green" transform="uppercase">
+                  <Text size="m" color="green" transform="uppercase">
                     {label}
                   </Text>
                   {currentTab.label === label && (

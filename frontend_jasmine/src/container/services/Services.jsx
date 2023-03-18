@@ -2,16 +2,12 @@ import React, { useState, useEffect } from "react";
 import SwiperCore, { Pagination } from "swiper";
 import MobileVersionPrice from "./components/MobileVersionPrice";
 import DesktopVersionPrice from "./components/DesktopVersionPrice";
-// import { wemanRoom } from "../../data/priceContainer";
 import { client } from "../../client";
-
-// import { mainServiceOptions } from "./utils/serviceOptions";
 import styles from "./Services.module.scss";
 
 SwiperCore.use([Pagination]);
 
 const Services = () => {
-  // first value by default
   const [price, setPrice] = useState([]);
   const [currentTab, setCurrentTab] = useState({});
   const [currentSrvice, setCurrentService] = useState(null);
