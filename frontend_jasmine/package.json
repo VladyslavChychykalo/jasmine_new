@@ -47,7 +47,6 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://vladyslavchychykalo.github.io/jasmine",
   "devDependencies": {
     "clsx": "^1.2.1"
   }
