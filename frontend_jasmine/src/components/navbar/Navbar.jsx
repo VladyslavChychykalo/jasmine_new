@@ -35,6 +35,7 @@ function Navbar() {
 
       <div className={styles.navbarMenu}>
         <IconMenu
+          className={`${!toggle ? styles.burger : styles.cross}`}
           onClick={() => {
             window.scrollTo({ top: 0, behavior: "smooth" });
             setToggle((prev) => !prev);
@@ -65,7 +66,7 @@ function Navbar() {
                   </li>
                 ))}
               </ul>
-              <div
+              {/* <div
                 style={{
                   display: "flex",
                   width: "100%",
@@ -89,7 +90,7 @@ function Navbar() {
                 >
                   UA
                 </div>
-              </div>
+              </div> */}
             </motion.div>
           </>
         )}

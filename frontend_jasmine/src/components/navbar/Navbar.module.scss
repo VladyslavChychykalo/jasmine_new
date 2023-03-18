@@ -95,9 +95,17 @@
   justify-content: center;
   align-items: center;
 
+  .burger {
+    width: 22px;
+    height: 22px;
+  }
+
+  .cross {
+    width: 18px;
+    height: 18px;
+  }
+
   svg {
-    width: 70%;
-    height: 70%;
     cursor: pointer;
   }
 
